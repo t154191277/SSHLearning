@@ -1,0 +1,2 @@
+k<?>和k<T>的区别
+k<? extends T> 和 K<T extends E>的区别。
