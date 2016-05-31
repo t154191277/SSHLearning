@@ -1,0 +1,14 @@
+/.struts.mex
+/action
+/applicationContext.xml
+/beans
+/dao
+/daoImpl
+/forms
+/hibernate.cfg.xml
+/service
+/serviceImpl
+/struts.xml
+/filter
+/listener
+/tag
