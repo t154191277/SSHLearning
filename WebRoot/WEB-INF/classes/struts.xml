@@ -2,15 +2,4 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 
-    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
-    <constant name="struts.devMode" value="true" />
-
-    <package name="default"  extends="struts-default">
-        <action name="register">
-            <result name="input">/Register.jsp</result>  
-            <result name="success">/Success.jsp</result>  
-            <result name="error">/Fail.jsp</result>  
-        </action>
-    </package>
-
-</struts>
+</struts>    
