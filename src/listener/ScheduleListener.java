@@ -29,7 +29,7 @@ public class ScheduleListener implements ServletContextListener {
 		timer = new Timer(true);
 		sce.getServletContext().log(new Date() + "计时器已经启动...");
 		sce.getServletContext().log(new Date() + "计时器已经启动...");
-		timer.schedule(new MyTask(),  0 , 2 * 60 * 1000);
+//		timer.schedule(new MyTask(),  0 , 2 * 60 * 1000);
 		sce.getServletContext().log(new Date() + "计时器执行一次...");
 		sce.getServletContext().log(new Date() + "计时器执行一次...");
 	}
