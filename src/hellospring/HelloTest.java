@@ -1,5 +1,7 @@
 package hellospring;
 
+import java.io.IOException;
+
 import org.junit.Test;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
@@ -48,13 +50,28 @@ public class HelloTest {
 		hello.sayHello();
 	}
 	
-	@Test
+//	@Test
 	public void TestBeanDI(){
 		BeanFactory factory = new ClassPathXmlApplicationContext("applicationContext.xml");
 		IHello hello = factory.getBean("bean12",IHello.class);
 		hello.sayHello();
 		
 		hello = factory.getBean("bean13",IHello.class);
+		hello.sayHello();
+	}
+	
+//	@Test
+	public void TestDependsOn() throws IOException{
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		context.registerShutdownHook();
+		SonImpl son = context.getBean("sonImpl",SonImpl.class);
+		son.write("aaa");
+	}
+	
+	@Test
+	public void testAutoWrite(){
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		IHello hello = context.getBean("bean15",HelloImpl2.class);
 		hello.sayHello();
 	}
 }
