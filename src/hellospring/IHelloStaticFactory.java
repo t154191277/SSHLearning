@@ -1,4 +1,4 @@
-package helloworld;
+package hellospring;
 
 public class IHelloStaticFactory {
 	public static IHello newInstance(String msg){

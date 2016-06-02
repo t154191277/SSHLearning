@@ -7,19 +7,115 @@
 
 	<!-- 三种方法实例化bean -->
 	<!-- 构造器 -->
-	<bean id="hello" class="helloworld.HelloImpl">
+	<bean id="hello" class="hellospring.HelloImpl">
 		<constructor-arg index="0" value="Hello Spring"></constructor-arg>
 	</bean>
 	
 	<!-- 静态工厂 -->
-	<bean id="bean" class="helloworld.IHelloStaticFactory" factory-method="newInstance">
+	<bean id="bean" class="hellospring.IHelloStaticFactory" factory-method="newInstance">
 		<constructor-arg index="0" value="Hello Spring By StaticFactory"></constructor-arg>
 	</bean>
 	
 	<!-- 定义工厂实例 -->
-	<bean id="beanInstanceFactory" class="helloworld.IHelloInstanceFactory"></bean>
+	<bean id="beanInstanceFactory" class="hellospring.IHelloInstanceFactory"></bean>
 	<bean id="bean1" factory-bean="beanInstanceFactory" factory-method="newInstance">
 		<constructor-arg index="0" value="Hello Spring By InstanceFactory"></constructor-arg>
 	</bean>
-
+	
+	<!-- 构造器注入 -->
+	<!-- 根据参数索引注入 -->
+	<bean id="bean2" class="hellospring.HelloImpl">
+		<constructor-arg index="0" value="byIndex"></constructor-arg>
+		<constructor-arg index="1" value="1"></constructor-arg>
+	</bean>
+	
+	<!-- 根据类型注入 -->
+	<bean id="bean3" class="hellospring.HelloImpl">
+		<constructor-arg type="java.lang.String" value="byType"></constructor-arg>
+		<constructor-arg type="int" value="2"></constructor-arg>
+	</bean>
+	
+	 <!-- 根据参数名注入 -->
+	 <bean id="bean4" class="hellospring.HelloImpl">
+	 	<constructor-arg name="msg" value="byName"></constructor-arg>
+	 	<constructor-arg name="i" value="3"></constructor-arg>
+	 </bean>
+	 
+	 <!-- setter方式依赖注入 -->
+	 <bean id="bean5" class="hellospring.HelloImpl">
+	 	<property name="msg" value="Hello World"></property>
+	 	<property name="i" value="2"></property>
+	 </bean>
+	 
+	 <!-- ID注入 -->
+	 <!-- bean方式 ，在容器初始化时校验被引用的Bean是否存在-->
+	 <bean id="bean6" class="java.lang.String">
+		<constructor-arg index="0" value="test1"></constructor-arg>
+	 </bean>
+	 <bean id="idrefbean1" class="hellospring.HelloImpl">
+	 	<property name="msg"><idref bean="bean6"/></property>
+	 </bean>
+	 
+	<!--  local方式，在Bean实际使用时才能发现传入的Bean的ID是否正确 -->
+	 <bean id="bean7" class="java.lang.String">
+	 	<constructor-arg index="0" value="test2"></constructor-arg>
+	 </bean>
+	 <bean id="idrefbean2" class="hellospring.HelloImpl">
+	 	<property name="msg"><idref local="bean7"/></property>
+	 </bean>
+	 
+	 <!-- list注入 -->
+	 <bean id="bean8" class="hellospring.HelloImpl">
+	 	<property name="values">
+	 		<list>
+	 			<value>1</value>
+	 			<value>2</value>
+	 			<value>3</value>
+	 		</list>
+	 	</property>
+	 </bean>
+	 
+	 <!-- array注入 -->
+	 <bean id="bean9" class="hellospring.HelloImpl">
+	 	<property name="arr">
+	 		<array value-type="java.lang.String" merge="default">
+	 			<value>1</value>
+	 		</array>
+	 	</property>
+	 </bean>
+	 
+	 <!-- map注入 -->
+	 <bean id="bean10" class="hellospring.HelloImpl">
+	 	<property name="map">
+	 		<map key-type="java.lang.String" value-type="java.lang.String" merge="default">
+	 			<entry>
+	 				<key><value>1</value></key>
+	 				<value>1</value>
+	 			</entry>
+	 			<entry key="1" value="1"></entry>
+	 		</map>
+	 	</property>
+	 </bean>
+	
+	<!-- properties注入 -->
+	<bean id="bean11" class="hellospring.HelloImpl">
+		<property name="prop">
+			<props value-type="java.lang.String" merge="default">
+				<prop key="1">test1</prop>
+				<prop key="2">test2</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- bean注入 -->
+	<!-- 构造器方式注入 -->
+	<bean id="hello1" class="hellospring.HelloImpl"></bean>
+	<bean id="bean12" class="hellospring.HelloImpl2">
+		<constructor-arg index="0" ><ref bean="hello1"></ref></constructor-arg>
+	</bean>
+	
+	<!-- set方式注入 -->
+	<bean id="bean13" class="hellospring.HelloImpl2">
+		<property name="hello1" ref="hello1"></property>
+	</bean>
 </beans>

@@ -1,4 +1,4 @@
-package helloworld;
+package hellospring;
 
 
 public interface IHello {
