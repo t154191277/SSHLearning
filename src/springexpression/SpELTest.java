@@ -196,7 +196,7 @@ public class SpELTest {
 	 * Bean引用
 	 * SpEL支持使用“@”符号来引用Bean，在引用Bean时需要使用BeanResolver接口实现来查找Bean，Spring提供BeanFactoryResolver实现；
 	 */
-	@Test
+//	@Test
 	public void testBeanExpression() {  
 	    ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext();  
 	    ctx.refresh();  
@@ -206,4 +206,6 @@ public class SpELTest {
 	    Properties result1 = parser.parseExpression("@systemProperties").getValue(context, Properties.class);  
 	    Assert.assertEquals(System.getProperties(), result1);  
 	}  
+	
+	
 }
