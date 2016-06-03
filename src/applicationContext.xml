@@ -141,4 +141,6 @@
 	<bean id="bean17" class="hellospring.HelloImpl" primary="true"></bean>
 	<bean id="bean18" class="hellospring.HelloImpl2"
 		autowire="byType"></bean>
+		
+		
 </beans>
