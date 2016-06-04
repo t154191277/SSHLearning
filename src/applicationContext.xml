@@ -153,12 +153,19 @@
 	<bean id="aspect" class="springaop.HelloWorldAspect"></bean>
 	<aop:config>
 		<!-- 匹配springaop包及子包下的任何方法执行 -->
-		<aop:pointcut expression="execution(* springaop..*.*(..))" id="pointcut"/>
+		<aop:pointcut expression="execution(* springaop..*.*(..)) and args(param)" id="pointcut"/>
 			<aop:aspect ref="aspect">
-				<aop:before method="beforeAdvice" pointcut-ref="pointcut"/>
-				<aop:after method="afterFinallyAdvice" pointcut="execution(* springaop..*.*(..))"/>
+				<aop:before method="beforeAdvice(java.lang.String)" arg-names="param" pointcut-ref="pointcut" />
+				<aop:after method="afterFinallyAdvice(java.lang.String)" arg-names="param"
+				pointcut="execution(* springaop..*.*(..)) and args(param)"/>
+<!-- 			<aop:after-returning pointcut="execution(* springaop..*.sayAfterReturning(..))"
+					method="afterReturningAdvice" arg-names="retVal" returning="retVal"/> -->
 			</aop:aspect>
 	</aop:config>
+	
+	<!-- 基于aspectj的aop -->
+	<aop:aspectj-autoproxy/>
+	<bean id="aspect2" class="springaop.HelloWorldAspect2"></bean>
 		
 		
 </beans>
