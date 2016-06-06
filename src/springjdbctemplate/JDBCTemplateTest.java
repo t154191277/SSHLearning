@@ -1,4 +1,4 @@
-package springjdbc;
+package springjdbctemplate;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,6 +13,8 @@ import junit.framework.Assert;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
@@ -22,6 +24,7 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
 
 public class JDBCTemplateTest {
 	
@@ -183,6 +186,17 @@ public class JDBCTemplateTest {
 		jdbcTemplate.update("delete from test where name = 'user5'");
 	}
 	
-	
+	@Test
+	public void testBestPractice(){
+		 String[] configLocations = new String[] {  
+		            "classpath:springResources.xml",  
+		            "classpath:springJdbc.xml"};  
+		    ApplicationContext ctx = new ClassPathXmlApplicationContext(configLocations);  
+		    IUserDao userDao = ctx.getBean(IUserDao.class);  
+		    UserModel model = new UserModel();  
+		    model.setName("test");  
+		    userDao.save(model);  
+		    Assert.assertEquals(5, userDao.countAll());  
+	}
 }
 

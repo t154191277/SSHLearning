@@ -29,5 +29,14 @@
 	<classpathentry kind="lib" path="E:/迅雷下载/spring-framework-3.2.0.RELEASE-dist/spring-framework-3.2.0.RELEASE/libs/spring-jdbc-3.2.0.RELEASE.jar" sourcepath="E:/迅雷下载/spring-framework-3.2.0.RELEASE-dist/spring-framework-3.2.0.RELEASE/libs/spring-jdbc-3.2.0.RELEASE-javadoc.jar"/>
 	<classpathentry kind="lib" path="E:/迅雷下载/spring-framework-3.2.0.RELEASE-dist/spring-framework-3.2.0.RELEASE/libs/spring-tx-3.2.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="E:/ChromeDownload/mysql-connector-java-5.1.39/mysql-connector-java-5.1.39/mysql-connector-java-5.1.39-bin.jar"/>
+	<classpathentry kind="lib" path="E:/迅雷下载/proxool-0.9.1-source/proxool-0.9.1/lib/spring-mock.jar"/>
+	<classpathentry kind="con" path="com.genuitec.runtime.library/com.genuitec.hibernate_4.1">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="WEB-INF/lib"/>
+			<attribute name="owner.project.facets" value="me.hibernate"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="E:/ChromeDownload/proxool-0.9.1/proxool-0.9.1/lib/proxool-0.9.1.jar"/>
+	<classpathentry kind="lib" path="E:/ChromeDownload/proxool-0.9.1/proxool-0.9.1/lib/proxool-cglib.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

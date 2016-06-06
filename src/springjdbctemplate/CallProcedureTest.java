@@ -1,4 +1,4 @@
-package springjdbc;
+package springjdbctemplate;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;

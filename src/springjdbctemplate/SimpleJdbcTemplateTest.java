@@ -1,4 +1,4 @@
-package springjdbc;
+package springjdbctemplate;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -39,19 +39,6 @@ public class SimpleJdbcTemplateTest {
 	    RowMapper<UserModel> mapper = new UserRowMapper();      
 	    List<UserModel> result2 = simpleJdbcTemplate.query(selectSql, mapper, "name5");
 	    Assert.assertEquals(1, result2.size());   
-	}
-	
-	class UserModel{
-		private String name;
-
-		public String getName() {
-			return name;
-		}
-
-		public void setName(String name) {
-			this.name = name;
-		}
-		
 	}
 	
 	class UserRowMapper implements RowMapper<UserModel>{

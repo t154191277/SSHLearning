@@ -1,4 +1,4 @@
-package springjdbc;
+package springjdbctemplate;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
